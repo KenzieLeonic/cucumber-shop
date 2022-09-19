@@ -32,5 +32,12 @@ public class BuyStepdefs {
     public void total_should_be(double total) {
         assertEquals(total, order.getTotal());
     }
+//    เพิ่ม feature และ step definition เพื่อทดสอบการตัดสต๊อคสินค้า กล่าวคือ ถ้ามีสินค้า 10 ชิ้น และลูกค้าซื้อไป 2 ชิ้น สินค้าต้องเหลือในสต๊อค 8 ชิ้น
+@Then("stock {string} should be {int}")
+public void stock_should_be(String name, int stock) {
+        Product product = catalog.getProduct(name);
+        int product_stock = product.getStock();
+    assertEquals(stock, product_stock);
+    }
 }
 
